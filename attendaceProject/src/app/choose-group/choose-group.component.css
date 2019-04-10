@@ -5,7 +5,7 @@ box-shadow: 0px 0px 2px 0px rgba(115,114,115,1);
 background-color: white;
 border-radius: 15px;
 width: 264px;
-height:400px;
+height:350px;
 position: absolute;
 left: 50%;
 top: 50%;
@@ -16,7 +16,7 @@ transform: translate(-50%, -50%);
   height:716px;
   position: absolute;
   left: 74%;
-  top: 120%;
+  top: 130%;
   transform: translate(-50%, -50%);
 }
 img.logo{
@@ -26,9 +26,6 @@ img.logo{
   transform: translate(-50%, -50%);
   width: 80.5px;
   height: 66.5px;
-}
-#Recordar{
-  font-family:
 }
 button {
   background: transparent;
@@ -77,8 +74,29 @@ button:active {
   box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
   background: #C9B00D;
 }
-.center {
-  position: absolute;
-  top: calc(50% - 10px);
-  left: calc(50% - 20px);
+.label2{
+  font-size: 25px;
+  text-align: center;
+}
+.select-style {
+    border: 1px solid #ccc;
+    width: 170px;
+    height: 30px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
 }

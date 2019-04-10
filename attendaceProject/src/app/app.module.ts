@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { ChooseGroupComponent } from './choose-group/choose-group.component';
+import { AttendanceRegisterComponent } from './attendance-register/attendance-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ChooseGroupComponent,
+    AttendanceRegisterComponent
   ],
   imports: [
     BrowserModule,
