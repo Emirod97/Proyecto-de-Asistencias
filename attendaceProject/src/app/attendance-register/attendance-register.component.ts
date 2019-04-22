@@ -9,6 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AttendanceRegisterComponent implements OnInit {
 
+  Alumnos: any;
+
+  constructor() {
+
+    this.Alumnos = {
+      nombre: [
+        'Jesus',
+        'Andrea',
+        'Jorge',
+        'Luis',
+        'Claudia',
+        'Ismael',
+        'Raul',
+        'Francisco',
+        'Lourdes',
+        'Daniela'
+    ]
+    };
+
+  }
+
   ngOnInit() {
   }
   usuario1="jesus";

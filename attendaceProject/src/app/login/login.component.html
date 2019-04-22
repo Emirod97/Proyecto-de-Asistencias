@@ -1,12 +1,20 @@
 <div class="box">
   <img class="logo" src="{{Logocetys}}" alt="logocetys"><br>
+  <form (submit)="Login($event)">
   <div class="minibox">
-        <span class="label">Usuario</span><br>
-          <input type="text" class="outlinenone" placeholder="&nbsp;">
+    <div class="input">
+     <!--   <span class="label" for="User">Usuario</span><br> -->
+          <label type="text" class="outlinenone" placeholder="&nbsp;">Usuario</label><br>
+          <input type="text">
+    </div>
     <br>
     <br>
-      <span class="label">Contraseña</span><br>
-      <input type="password" class="outlinenone" placeholder="&nbsp;">
+    <div class="input">
+      <!--<span class="label" for="Pass">Contraseña</span><br> -->
+      <label type="password" class="outlinenone" placeholder="&nbsp;">Contraseña</label>
+      <br>
+      <input type="password">
+    </div>
       <div class="center">
         <input type="checkbox" id="cbx" style="display:none"/>
       </div>
@@ -16,6 +24,9 @@
     <input id="recordar" type="checkbox" name="Recordar" value="Bike"> Recordar<br>
   </label>
   <br>
-  <button (click)="login('/user/id')">LogIn</button>
+  <div>
+  <input type="submit" value="Login">
+</div>
   </div>
+</form>
 </div>
