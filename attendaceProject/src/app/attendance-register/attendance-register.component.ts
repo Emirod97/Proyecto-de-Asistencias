@@ -33,4 +33,5 @@ export class AttendanceRegisterComponent implements OnInit {
   ngOnInit() {
   }
   usericon="./../../assets/img/user.png";
+  happy="./../../assets/img/happy.png";
 }

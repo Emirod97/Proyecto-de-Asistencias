@@ -1,16 +1,29 @@
-<div class="box">
-  <img class="logo" src="{{Logocetys}}" alt="logocetys"><br>
-  <div class="minibox">
-    <br>
-        <span class="label2">Welcome, {{user}}!</span><br><br>
-        <span class="label">Choose a group</span><br>
-        <br>
-        <div class="select-style"><select class="form-select">
-      <option value="happy">1</option>
-      <option value="soso">2</option>
-      <option value="sad">3</option>
-      </select></div>
-  <br>
-  <button (click)="group('groups/list')">Next</button>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <form class="form-signin">
+              <label class="fp2">Welcome, {{user}}!</label><br>
+              <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose a group</label>
+              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <option selected value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <br>
+              <br>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" id="btn-login" type="submit" (click)="group('groups/list')">Next</button>
+            </form>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</body>

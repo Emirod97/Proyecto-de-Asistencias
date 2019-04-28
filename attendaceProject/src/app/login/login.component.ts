@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
     usernames: string[]=["e008836", "e008153"];
     passwords: string[]=["e008836", "e008153"]
-  
+
 
   constructor(private router: Router) { }
 
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   Logocetys = "./../../assets/img/logocetys.png";
+  checkbutton = "./../../assets/img/check_radio_sheet.png";
 
   public Login(e){
 
@@ -30,12 +31,12 @@ export class LoginComponent implements OnInit {
 
 // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.usernames.length; i++) {
-      
+
       console.log('vuelta');
 
       if (user == this.usernames[i] && pass == this.passwords[i]) {
 
-        
+
 
         this.router.navigate(['/user/id']).then( (e) => {
           if (e) {
@@ -46,11 +47,10 @@ export class LoginComponent implements OnInit {
 
           break;
       }
-      
+
     }
 
   }
 
 
 }
-

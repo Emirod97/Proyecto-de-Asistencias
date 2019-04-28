@@ -1,10 +1,126 @@
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+body {
+background-color: #DDDDDD;
+}
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.form-label-group>input,
+.form-label-group>label {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-label-group>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+#btn-login {
+  color: white;
+  background-color: #f7d117;
+  border-color: #f7d117;
+}
+#cardi{
+    height:30px;
+}
+
+.fp2{
+  color: black;
+  font-size: 25px;
+  text-align: center;
+}
 .tabled{
   width: 1000px;
   height:500px;
   position: relative;
   left: 50%;
-  top: 80%;
+  top: 0%;
   transform: translate(-50%, 20%);
+  border-color: gray;
+  border-radius: 15px;
 }
 .tabled2{
   width: 1000px;
@@ -14,19 +130,41 @@
   transform: translate(-50%, 30%);
 }
 .bo{
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(115,114,115,1);
-  -moz-box-shadow: 0px 0px 2px 0px rgba(115,114,115,1);
-  box-shadow: 0px 0px 2px 0px rgba(115,114,115,1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.14);
+transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   background-color: white;
-  border-radius: 2px;
-  width: 300px;
+  border-radius: 10px;
+  width: 350px;
   height:50px;
   position: relative;
   text-align: center;
   line-height: 50px;
 }
+.happy{
+width: 50px;
+height: 50px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+display: inline-block;
+position: relative;
+background-color: #5AB18F;
+color: #666;
+border: 0;
+border-radius: 10px;
+cursor: pointer;
+margin-right: 7px;
+outline: none;
+box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.14);
+}
+
+.happy:checked
+{
+     background-color: #f1f1f1;
+}
+
 th, td {
-  padding: 15px;
+  padding: 10px;
 
 }
 .form-checkbox

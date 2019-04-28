@@ -1,32 +1,41 @@
-<div class="box">
-  <img class="logo" src="{{Logocetys}}" alt="logocetys"><br>
-  <form (submit)="Login($event)">
-  <div class="minibox">
-    <div class="input">
-     <!--   <span class="label" for="User">Usuario</span><br> -->
-          <label type="text" class="outlinenone" placeholder="&nbsp;">Usuario</label><br>
-          <input type="text">
-    </div>
-    <br>
-    <br>
-    <div class="input">
-      <!--<span class="label" for="Pass">Contraseña</span><br> -->
-      <label type="password" class="outlinenone" placeholder="&nbsp;">Contraseña</label>
-      <br>
-      <input type="password">
-    </div>
-      <div class="center">
-        <input type="checkbox" id="cbx" style="display:none"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+              <img class="logo" src="{{Logocetys}}" alt="logocetys"><br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            <form (submit)="Login($event)" class="form-signin">
+              <div class="form-group">
+                <label for="formGroupExampleInput">Username</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Username">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <br>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" id="btn-login" type="submit" value="Login">Sign in</button>
+            </form>
+            <br>
+          </div>
+        </div>
       </div>
-    <br>
-    <br>
-  <label>
-    <input id="recordar" type="checkbox" name="Recordar" value="Bike"> Recordar<br>
-  </label>
-  <br>
-  <div>
-  <input type="submit" value="Login">
-</div>
+    </div>
   </div>
-</form>
-</div>
+</body>
