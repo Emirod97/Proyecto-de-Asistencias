@@ -34,5 +34,6 @@ export class AttendanceRegisterComponent implements OnInit {
   }
   usericon="./../../assets/img/user.png";
   happy="./../../assets/img/happy.png";
+  question="./../../assets/img/question.png";
   count=0;
 }

@@ -6,18 +6,30 @@
 <div class="tabled2">
   <br>
   <h1>Attendance List</h1>
-  <hr>
+  <hr class="style2">
   </div>
+  <div class="tabled3">
+    <table>
+      <tr>
+        <td width="370px">Name</td>
+        <td width="110px">Attendance</td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Class participation" alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Behavior" alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Puntuality" alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Attention" alt="question" class="question"></td>
+    </tr>
+    </table>
+    </div>
   <div class="tabled" style="overflow:auto;">
 <table>
   <tr *ngFor="let nombres of Alumnos.nombre">
     <td width="300px" height="50px"><div class="bo"><label class="text1">{{nombres}}</label></div></td>
     <td><input type="checkbox" class="form-checkbox" id="check-one" checked></td>
     <td><input type="checkbox" class="form-checkbox" id="check-two" checked></td>
-    <td><button type="button" class="happy" (click)="changecolor()"></button></td>
-    <td><button type="button" class="happy"></button></td>
-    <td><button type="button" class="happy"></button></td>
-    <td><button type="button" class="happy"></button></td>
+    <td><button type="button" id="happy"></button></td>
+    <td><button type="button" id="regular"></button></td>
+    <td><button type="button" id="sad"></button></td>
+    <td><button type="button" id="happy"></button></td>
 <td><button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="form-button">Comment</button>
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -45,3 +57,8 @@
   <button type="button" class="form-button2">Save</button>
 </div>
 </body>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
