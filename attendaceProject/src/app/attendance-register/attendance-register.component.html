@@ -5,7 +5,7 @@
 <body>
 <div class="tabled2">
   <br>
-  <h1>Attendance</h1>
+  <h1>Attendance List</h1>
   <hr>
   </div>
   <div class="tabled" style="overflow:auto;">
@@ -14,11 +14,30 @@
     <td width="300px" height="50px"><div class="bo"><label class="text1">{{nombres}}</label></div></td>
     <td><input type="checkbox" class="form-checkbox" id="check-one" checked></td>
     <td><input type="checkbox" class="form-checkbox" id="check-two" checked></td>
+    <td><button type="button" class="happy" (click)="changecolor()"></button></td>
     <td><button type="button" class="happy"></button></td>
     <td><button type="button" class="happy"></button></td>
     <td><button type="button" class="happy"></button></td>
-    <td><button type="button" class="happy"></button></td>
-<td><button type="button" href="#popup1" class="form-button">Comment</button></td>
+<td><button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="form-button">Comment</button>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div></td>
   </tr>
 </table>
 </div>
