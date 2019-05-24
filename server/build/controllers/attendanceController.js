@@ -23,14 +23,14 @@ class AttendanceController {
     }
     postAttendance(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            var asis = req.body._asistencia;
-            var id_al = req.body._id_alumno;
-            var grupo = req.body._grupo;
-            var ind1 = req.body._indicador_uno;
-            var indi2 = req.body._indicador_dos;
-            var indi3 = req.body._indicador_tres;
-            var indi4 = req.body._indicador_cuatr;
-            var comen = req.body._comentario;
+            var asis = req.body.asistencia;
+            var id_al = req.body.id_alumno;
+            var grupo = req.body.grupo;
+            var ind1 = req.body.indicador_uno;
+            var indi2 = req.body.indicador_dos;
+            var indi3 = req.body.indicador_tres;
+            var indi4 = req.body.indicador_cuatro;
+            var comen = req.body.comentario;
             console.log(req.body);
             yield database_1.default.query(`CALL registrarAsistencia (${asis} ,${id_al},'${grupo}','${ind1}','${indi2}','${indi3}','${indi4}','${comen}')`);
             res.json({ message: 'group created' });

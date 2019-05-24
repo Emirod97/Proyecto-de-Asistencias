@@ -32,7 +32,7 @@
   <div class="tabled" style="overflow:auto;"> -->
 
     <tr *ngFor="let alumno of Alumnos">
-      
+
       <td width="300px" height="50px">
         <div class="bo"><label class="text1">{{alumno.apellido_paterno}} {{alumno.apellido_materno}}
             {{alumno.nombre}}</label></div>
@@ -41,11 +41,12 @@
 
           <option>2</option>
           <option>1</option>
+          <option>0</option>
 
         </select></td>
 
 
-      <td><button type="button" id="{{face1}}" (click)="changeFace1()"></button></td>
+      <td><button type="button" id="{{face1}}" ></button></td>
       <td><button type="button" id="regular"></button></td>
       <td><button type="button" id="sad"></button></td>
       <td><button type="button" id="happy"></button></td>

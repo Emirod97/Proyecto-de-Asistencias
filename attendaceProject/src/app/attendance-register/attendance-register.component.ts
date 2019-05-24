@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
+import { Attendance } from '../models/attendance';
 
 
 
@@ -15,19 +16,12 @@ export class AttendanceRegisterComponent implements OnInit {
   contador = 1;
   face1 = "happy";
 
-  control:{
-    nombre:string,
-    apellidoP:string,
-    apellidoM:string,
-    face1: String,
-    face2: String,
-    face3: String,
-    face4: String
-  }[];
+  
 
   constructor(private activateRoute: ActivatedRoute, private service: DataServiceService) { }
 
   ngOnInit() {
+    
 
     // Se obtiene el id del maestro de la ruta
     const params = this.activateRoute.snapshot.params;
@@ -35,17 +29,43 @@ export class AttendanceRegisterComponent implements OnInit {
     //Consulta al servicio obteniendo los grupos del asignados al usuario
     this.service.getStudents(params.id).subscribe(
       res => {
-        console.log(res)
+
         this.Alumnos = res;
-        console.log(this.Alumnos)
+
+        for (let index = 0; index < this.Alumnos.length; index++) {
+
+          let arr: Attendance;
+          arr = {
+            asistencia: 2,
+            id_alumno: this.Alumnos[index].id_alumno,
+            grupo: params.id,
+            indicador_uno: "",
+            indicador_dos: "",
+            indicador_tres: "",
+            indicador_cuatro: "",
+            comentario: ""
+          };
+         
+          this.service.saveAttendance(arr).subscribe(
+            res => console.log("asistencia agregada"),
+            err => console.log(err)
+          )
+
+         
+        }
+
+       
       },
       err => console.error(err)
-    ); 
+    );
+
+
+
 
   }
 
 
-
+/*
   changeFace1() {
     if (this.contador == 0) {
       this.face1 = "happy";
@@ -62,6 +82,8 @@ export class AttendanceRegisterComponent implements OnInit {
       }
     }
   }
+*/
+
   usericon = "./../../assets/img/user.png";
   happy = "./../../assets/img/happy.png";
   question = "./../../assets/img/question.png";

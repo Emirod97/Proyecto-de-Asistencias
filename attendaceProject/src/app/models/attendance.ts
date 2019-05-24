@@ -1,10 +1,10 @@
 export interface Attendance{
     asistencia: number;
     id_alumno: number;
-    grupo: number;
-    indicador_uno: number;
-    indicador_dos: number;
-    indicador_tres: number;
-    indicador_cuetro: number;
+    grupo: string;
+    indicador_uno: string;
+    indicador_dos: string;
+    indicador_tres: string;
+    indicador_cuatro: string;
     comentario: string;
 }
