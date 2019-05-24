@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { DataServiceService } from '../services/data-service.service';
+
+
+
 
 @Component({
   selector: 'app-choose-group',
@@ -8,22 +12,42 @@ import { Router} from "@angular/router";
 })
 export class ChooseGroupComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  groups: any = [];
+  user: string;
+
+  constructor(private router: Router, private service: DataServiceService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
+    // Se obtiene el id del maestro de la ruta
+    const params = this.activateRoute.snapshot.params;
+
+    //Consulta al servicio obteniendo los grupos del asignados al usuario
+    this.service.getGroup(params.id).subscribe(
+      res => {
+        console.log(res)
+        this.groups = res;
+      },
+      err => console.error(err)
+    );
+
   }
-Logocetys = "./../../assets/img/logocetys.png";
-user="José"
 
-public group(url){
+  Logocetys = "./../../assets/img/logocetys.png";
 
-  this.router.navigate([url]).then( (e) => {
-    if (e) {
-      console.log("Navigation to groups list is successful!");
-    } else {
-      console.log("Navigation to groups list has failed!");
-    }});
-}
+  public group() {
+
+    const id = (<HTMLInputElement>document.getElementById('id_group')).value;
+
+    this.router.navigate(['/group/', id  ]).then((e) => {
+      if (e) {
+        console.log("Navigation to groups list is successful!");
+      } else {
+        console.log("Navigation to groups list has failed!");
+      }
+    });
+
+  }
 
 
 }

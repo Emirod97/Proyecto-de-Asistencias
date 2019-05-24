@@ -1,64 +1,87 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <body>
-<div class="tabled2">
-  <br>
-  <h1>Attendance List</h1>
-  <hr class="style2">
+  <div class="tabled2">
+    <br>
+    <h1>Attendance List</h1>
+    <hr class="style2">
   </div>
   <div class="tabled3">
     <table>
       <tr>
         <td width="370px">Name</td>
         <td width="110px">Attendance</td>
-        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Class participation" alt="question" class="question"></td>
-        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Behavior" alt="question" class="question"></td>
-        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Puntuality" alt="question" class="question"></td>
-        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Attention" alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Class participation"
+            alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Behavior"
+            alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Puntuality"
+            alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" data-toggle="tooltip" data-placement="top" title="Attention"
+            alt="question" class="question"></td>
+      </tr>
+<!--
+  </div>
+  <div class="tabled" style="overflow:auto;"> -->
+
+    <tr *ngFor="let alumno of Alumnos">
+      
+      <td width="300px" height="50px">
+        <div class="bo"><label class="text1">{{alumno.apellido_paterno}} {{alumno.apellido_materno}}
+            {{alumno.nombre}}</label></div>
+      </td>
+      <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" id="assist">
+
+          <option>2</option>
+          <option>1</option>
+
+        </select></td>
+
+
+      <td><button type="button" id="{{face1}}" (click)="changeFace1()"></button></td>
+      <td><button type="button" id="regular"></button></td>
+      <td><button type="button" id="sad"></button></td>
+      <td><button type="button" id="happy"></button></td>
+
+      <td><button type="button" data-toggle="modal" data-target="#exampleModalCenter"
+          class="form-button">Comment</button>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
     </tr>
     </table>
-    </div>
-  <div class="tabled" style="overflow:auto;">
-<table>
-  <tr *ngFor="let nombres of Alumnos.nombre">
-    <td width="300px" height="50px"><div class="bo"><label class="text1">{{nombres}}</label></div></td>
-    <td><input type="checkbox" class="form-checkbox" id="check-one" checked></td>
-    <td><input type="checkbox" class="form-checkbox" id="check-two" checked></td>
-    <td><button type="button" id="happy"></button></td>
-    <td><button type="button" id="regular"></button></td>
-    <td><button type="button" id="sad"></button></td>
-    <td><button type="button" id="happy"></button></td>
-<td><button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="form-button">Comment</button>
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div></td>
-  </tr>
-</table>
-</div>
-<div class="savebox">
-  <button type="button" class="form-button2">Save</button>
-</div>
+  </div>
+  <div class="savebox">
+    <button type="button" class="form-button2">Save</button>
+  </div>
 </body>
 <script>
   $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 </script>

@@ -9,8 +9,8 @@ import { Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
 
-    usernames: string[]=["e008836", "e008153"];
-    passwords: string[]=["e008836", "e008153"]
+    usernames: string[]=["9153", "8153"];
+    passwords: string[]=["9153", "8153"]
 
 
   constructor(private router: Router) { }
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
 
 
-        this.router.navigate(['/user/id']).then( (e) => {
+        this.router.navigate(['/user/',this.usernames[i]]).then( (e) => {
           if (e) {
             console.log("Navigation to groups is successful!");
           } else {

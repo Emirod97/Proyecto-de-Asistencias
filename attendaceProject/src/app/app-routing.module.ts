@@ -6,10 +6,10 @@ import { AttendanceRegisterComponent } from './attendance-register/attendance-re
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', redirectTo: 'user/login', pathMatch: 'full'},
   { path: 'user/login', component: LoginComponent},
-  { path: 'user/id', component: ChooseGroupComponent},
-  { path: 'groups/list', component: AttendanceRegisterComponent}
+  { path: 'user/:id', component: ChooseGroupComponent},
+  { path: 'group/:id', component: AttendanceRegisterComponent}
 ];
 
 @NgModule({
