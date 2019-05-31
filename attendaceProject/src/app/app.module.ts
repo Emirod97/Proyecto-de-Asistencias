@@ -7,6 +7,8 @@ import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { DataServiceService } from "./services/data-service.service";
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DataServiceService } from "./services/data-service.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

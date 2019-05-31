@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
 import { Attendance } from '../models/attendance';
+import { TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 
@@ -15,13 +18,14 @@ export class AttendanceRegisterComponent implements OnInit {
   Alumnos: any = [];
   contador = 1;
   face1 = "happy";
+  modalRef: BsModalRef;
+  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService, private modalService: BsModalService) { }
 
-  
-
-  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService) { }
-
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
   ngOnInit() {
-    
+
 
     // Se obtiene el id del maestro de la ruta
     const params = this.activateRoute.snapshot.params;
@@ -45,16 +49,16 @@ export class AttendanceRegisterComponent implements OnInit {
             indicador_cuatro: "",
             comentario: ""
           };
-         
+
           this.service.saveAttendance(arr).subscribe(
             res => console.log("asistencia agregada"),
             err => console.log(err)
           )
 
-         
+
         }
 
-       
+
       },
       err => console.error(err)
     );
