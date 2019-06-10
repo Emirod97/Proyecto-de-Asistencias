@@ -22,6 +22,7 @@ class Server {
     }
     routes() {
         this.app.use('/user', chooseGroupRoutes_1.default);
+        this.app.use('/', chooseGroupRoutes_1.default);
         this.app.use('/group', attendaceRoutes_1.default);
     }
     start() {

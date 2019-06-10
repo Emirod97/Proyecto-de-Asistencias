@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from "@angular/router";
+import { Router, ActivatedRoute} from "@angular/router";
+import { DataServiceService } from '../services/data-service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,13 @@ import { Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
 
-    usernames: string[]=["9153", "8153"];
-    passwords: string[]=["9153", "8153"]
 
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: DataServiceService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
+
+  usernames: any = [];
 
   Logocetys = "./../../assets/img/logocetys.png";
   checkbutton = "./../../assets/img/check_radio_sheet.png";
@@ -29,26 +29,35 @@ export class LoginComponent implements OnInit {
     var pass = e.target.elements[1].value;
     console.log(user, pass);
 
+    this.service.getUsers().subscribe(
+      res => {
+        console.log(res);
+        this.usernames = res;
+        for (let i = 0; i < this.usernames.length; i++) {
+
+          console.log('vuelta');
+    
+          if (user == this.usernames[i].username && pass == this.usernames[i].password) {
+    
+    
+    
+            this.router.navigate(['/user/',this.usernames[i].username]).then( (e) => {
+              if (e) {
+                console.log("Navigation to groups is successful!");
+              } else {
+                console.log("Navigation to groups has failed!");
+              }});
+    
+              break;
+          }
+    
+        }
+      },
+      err => console.error(err)
+    );
+
 // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.usernames.length; i++) {
 
-      console.log('vuelta');
-
-      if (user == this.usernames[i] && pass == this.passwords[i]) {
-
-
-
-        this.router.navigate(['/user/',this.usernames[i]]).then( (e) => {
-          if (e) {
-            console.log("Navigation to groups is successful!");
-          } else {
-            console.log("Navigation to groups has failed!");
-          }});
-
-          break;
-      }
-
-    }
 
   }
 

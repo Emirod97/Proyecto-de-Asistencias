@@ -12,6 +12,7 @@ class ChoseGroupeRoutes{
     config():void{
         this.router.get('/:id', groupController.getGroups);
         this.router.post('/', groupController.postGroups);
+        this.router.get('/', groupController.getUsers);
     }
 }
 const choseGroupeRoutes = new ChoseGroupeRoutes();

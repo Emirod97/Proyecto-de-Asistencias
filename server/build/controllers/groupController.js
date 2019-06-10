@@ -21,6 +21,12 @@ class GroupController {
             res.json(grupo);
         });
     }
+    getUsers(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const grupo = yield database_1.default.query('SELECT * FROM login;');
+            res.json(grupo);
+        });
+    }
     postGroups(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO materias_activas set ?', [req.body]);

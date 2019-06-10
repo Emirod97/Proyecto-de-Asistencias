@@ -150,6 +150,12 @@ CREATE TABLE satisfaccion_del_aula
   FOREIGN KEY (grupo) REFERENCES materias_activas(grupo)
 );
 
+CREATE TABLE login
+(
+  username VARCHAR(12) NOT NULL,
+  password VARCHAR(15) NOT NULL
+);
+
 DELIMITER //
 CREATE PROCEDURE registrarAsistencia
 (

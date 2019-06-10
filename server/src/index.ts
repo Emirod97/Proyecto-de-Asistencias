@@ -25,6 +25,7 @@ class Server{
 
     routes(): void{
         this.app.use('/user',chooseGroupRoutes);
+        this.app.use('/', chooseGroupRoutes);
         this.app.use('/group', attendaceRoutes);
     }
 

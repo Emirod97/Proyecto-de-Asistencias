@@ -20,6 +20,10 @@ export class DataServiceService {
     return this.http.get(`${this.API_URI}/group/${id}`);
   }
 
+  getUsers(){
+    return this.http.get(`${this.API_URI}/`);
+  }
+
   saveAttendance(attendance: Attendance){
     return this.http.post(`${this.API_URI}/group/`, attendance);
   }
