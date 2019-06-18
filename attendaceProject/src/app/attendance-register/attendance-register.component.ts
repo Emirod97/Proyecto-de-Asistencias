@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
 import { Attendance } from '../models/attendance';
 import { TemplateRef } from '@angular/core';
@@ -16,7 +16,7 @@ import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/rende
   styleUrls: ['./attendance-register.component.css']
 })
 export class AttendanceRegisterComponent implements OnInit {
-  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService, private modalService: BsModalService) { }
+  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService, private modalService: BsModalService, private router: Router) { }
 
   Alumnos: any = [];
 
@@ -31,6 +31,7 @@ export class AttendanceRegisterComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+    
   }
 
 
@@ -59,6 +60,7 @@ export class AttendanceRegisterComponent implements OnInit {
           listObj.indicador_dos = "button1";
           listObj.indicador_tres = "button1";
           listObj.indicador_cuatro = 'button1';
+          listObj.comentario='';
 
           console.log(listObj);
 
@@ -162,6 +164,9 @@ export class AttendanceRegisterComponent implements OnInit {
       );
 
     }
+
+    //this.router.navigate(['/user/login']);
+
   }
 
   getIndicador(value: any): string {

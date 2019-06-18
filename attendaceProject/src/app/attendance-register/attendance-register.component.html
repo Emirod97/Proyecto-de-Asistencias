@@ -6,23 +6,12 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <body>
   <div class="tabled2">
     <br>
     <h1>Attendance List</h1>
-<ng-template #template>
-        <div class="modal-header">
-          <h4 class="modal-title">Comments</h4>
-          <button type="button" class="close" (click)="modalRef.hide()">&times;</button>
-        </div>
-        <div class="modal-body">
-	<textarea class="form-control" rows="5" id="comment"></textarea>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="modalRef.hide()">Save Changes</button>
-          <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
-        </div>
-  </ng-template>
+    
     <hr class="style2">
   </div>
   <div class="tabled3">
@@ -30,42 +19,50 @@
       <tr>
         <td width="370px">Name</td>
         <td width="110px">Attendance</td>
-        <td width="78px"><img src="{{question}}" tooltip="Class participation"
-            alt="question" class="question"></td>
-        <td width="78px"><img src="{{question}}" tooltip="Behavior"
-            alt="question" class="question"></td>
-        <td width="78px"><img src="{{question}}" tooltip="Punctuality"
-            alt="question" class="question"></td>
-        <td width="78px"><img src="{{question}}" tooltip="Attention"
-            alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" tooltip="Class participation" alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" tooltip="Behavior" alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" tooltip="Punctuality" alt="question" class="question"></td>
+        <td width="78px"><img src="{{question}}" tooltip="Attention" alt="question" class="question"></td>
       </tr>
-<!--
+      <!--
   </div>
   <div class="tabled" style="overflow:auto;"> -->
 
-    <tr *ngFor="let lista of list">
+      <tr *ngFor="let lista of list">
 
-      <td width="300px" height="50px">
-        <div class="bo"><label class="text1">{{lista.apellidoP}} {{lista.apellidoM}}
-            {{lista.nombre}}</label></div>
-      </td>
-      <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" id="{{lista.id_alumno}}">
+          <ng-template #template>
+              <div class="modal-header">
+                <h4 class="modal-title">Comments</h4>
+                <button type="button" class="close" (click)="modalRef.hide()">&times;</button>
+              </div>
+              <div class="modal-body">
+                <input type="text" class="form-control" id="comment" [(ngModel)]="lista.comentario">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="modalRef.hide()">Save</button>
+              </div>
+            </ng-template>
 
-          <option>2</option>
-          <option>1</option>
-          <option>0</option>
+        <td width="300px" height="50px">
+          <div class="bo"><label class="text1">{{lista.apellidoP}} {{lista.apellidoM}}
+              {{lista.nombre}}</label></div>
+        </td>
+        <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" id="{{lista.id_alumno}}">
 
-        </select></td>
+            <option>2</option>
+            <option>1</option>
+            <option>0</option>
+
+          </select></td>
 
 
-      <td><button type="button" class="{{lista.indicador_uno}}" (click)="cambiar1(lista.id_alumno)"></button></td>
-      <td><button type="button" class="{{lista.indicador_dos}}" (click)="cambiar2(lista.id_alumno)"></button></td>
-      <td><button type="button" class="{{lista.indicador_tres}}" (click)="cambiar3(lista.id_alumno)"></button></td>
-      <td><button type="button" class="{{lista.indicador_cuatro}}" (click)="cambiar4(lista.id_alumno)"></button></td>
-      <td><button type="button" (click)="openModal(template)"
-          class="form-button">Comment</button>
-      </td>
-    </tr>
+        <td><button type="button" class="{{lista.indicador_uno}}" (click)="cambiar1(lista.id_alumno)"></button></td>
+        <td><button type="button" class="{{lista.indicador_dos}}" (click)="cambiar2(lista.id_alumno)"></button></td>
+        <td><button type="button" class="{{lista.indicador_tres}}" (click)="cambiar3(lista.id_alumno)"></button></td>
+        <td><button type="button" class="{{lista.indicador_cuatro}}" (click)="cambiar4(lista.id_alumno)"></button></td>
+        <td><button type="button" (click)="openModal(template)" class="form-button">Comment</button>
+        </td>
+      </tr>
     </table>
   </div>
   <div class="savebox">
