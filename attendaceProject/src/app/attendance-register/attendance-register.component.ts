@@ -5,6 +5,8 @@ import { Attendance } from '../models/attendance';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { Lista } from '../models/lista';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
 
 
 
@@ -14,19 +16,25 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
   styleUrls: ['./attendance-register.component.css']
 })
 export class AttendanceRegisterComponent implements OnInit {
+  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService, private modalService: BsModalService) { }
 
   Alumnos: any = [];
-  contador = 1;
-  face1 = "happy";
+
+  nombre: string;
+
+  list: Array<Lista> = [];
+
   modalRef: BsModalRef;
-  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService, private modalService: BsModalService) { }
+
+  usericon = "./../../assets/img/user.png";
+  question = "./../../assets/img/question.png";
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
+
+
   ngOnInit() {
-
-
     // Se obtiene el id del maestro de la ruta
     const params = this.activateRoute.snapshot.params;
     console.log(params);
@@ -36,27 +44,29 @@ export class AttendanceRegisterComponent implements OnInit {
 
         this.Alumnos = res;
 
+
+
         for (let index = 0; index < this.Alumnos.length; index++) {
 
-          let arr: Attendance;
-          arr = {
-            asistencia: 2,
-            id_alumno: this.Alumnos[index].id_alumno,
-            grupo: params.id,
-            indicador_uno: "",
-            indicador_dos: "",
-            indicador_tres: "",
-            indicador_cuatro: "",
-            comentario: ""
-          };
+          let listObj = {} as Lista;
 
-          this.service.saveAttendance(arr).subscribe(
-            res => console.log("asistencia agregada"),
-            err => console.log(err)
-          )
+          listObj.id_alumno = this.Alumnos[index].id_alumno;
+          listObj.nombre = this.Alumnos[index].nombre;
+          listObj.apellidoP = this.Alumnos[index].apellido_paterno;
+          listObj.apellidoM = this.Alumnos[index].apellido_materno;
+          listObj.asistencia = "2";
+          listObj.indicador_uno = "button1";
+          listObj.indicador_dos = "button1";
+          listObj.indicador_tres = "button1";
+          listObj.indicador_cuatro = 'button1';
 
+          console.log(listObj);
+
+          this.list.push(listObj);
+          console.log(this.list);
 
         }
+
 
 
       },
@@ -65,31 +75,114 @@ export class AttendanceRegisterComponent implements OnInit {
 
 
 
+  }
+
+  cambiar1(id: any) {
+
+
+    for (let index = 0; index < this.list.length; index++) {
+      if (id == this.list[index].id_alumno) {
+
+        if (this.list[index].indicador_uno == "button1") {
+          this.list[index].indicador_uno = "button2";
+        } else if (this.list[index].indicador_uno == "button2") {
+          this.list[index].indicador_uno = "button3";
+        } else {
+          this.list[index].indicador_uno = "button1";
+        }
+      }
+    }
 
   }
 
+  cambiar2(id: any) {
+    for (let index = 0; index < this.list.length; index++) {
+      if (id == this.list[index].id_alumno) {
 
-/*
-  changeFace1() {
-    if (this.contador == 0) {
-      this.face1 = "happy";
-      this.contador = 1;
-    } else {
-      if (this.contador == 1) {
-        this.face1 = "regular";
-        this.contador = 2;
-      } else {
-        if (this.contador == 2) {
-          this.face1 = "sad";
-          this.contador = 0;
+        if (this.list[index].indicador_dos == "button1") {
+          this.list[index].indicador_dos = "button2";
+        } else if (this.list[index].indicador_dos == "button2") {
+          this.list[index].indicador_dos = "button3";
+        } else {
+          this.list[index].indicador_dos = "button1";
         }
       }
     }
   }
-*/
+  cambiar3(id: any) {
+    for (let index = 0; index < this.list.length; index++) {
+      if (id == this.list[index].id_alumno) {
 
-  usericon = "./../../assets/img/user.png";
-  happy = "./../../assets/img/happy.png";
-  question = "./../../assets/img/question.png";
-  count = 0;
+        if (this.list[index].indicador_tres == "button1") {
+          this.list[index].indicador_tres = "button2";
+        } else if (this.list[index].indicador_tres == "button2") {
+          this.list[index].indicador_tres = "button3";
+        } else {
+          this.list[index].indicador_tres = "button1";
+        }
+      }
+    }
+  }
+  cambiar4(id: any) {
+    for (let index = 0; index < this.list.length; index++) {
+      if (id == this.list[index].id_alumno) {
+
+        if (this.list[index].indicador_cuatro == "button1") {
+          this.list[index].indicador_cuatro = "button2";
+        } else if (this.list[index].indicador_cuatro == "button2") {
+          this.list[index].indicador_cuatro = "button3";
+        } else {
+          this.list[index].indicador_cuatro = "button1";
+        }
+      }
+    }
+  }
+
+  tomarLista() {
+    const params = this.activateRoute.snapshot.params;
+    for (let index = 0; index < this.list.length; index++) {
+      const e = this.list[index];
+
+      let asisObj = {} as Attendance;
+
+      asisObj.asistencia = +(<HTMLInputElement>document.getElementById('' + e.id_alumno)).value;
+      asisObj.id_alumno = e.id_alumno;
+      asisObj.grupo = params.id;
+      asisObj.indicador_uno = this.getIndicador(e.indicador_uno);
+      asisObj.indicador_dos = this.getIndicador(e.indicador_dos);
+      asisObj.indicador_tres = this.getIndicador(e.indicador_tres);
+      asisObj.indicador_cuatro = this.getIndicador(e.indicador_cuatro);
+      asisObj.comentario = e.comentario;
+
+      console.log(asisObj);
+
+      this.service.saveAttendance(asisObj).subscribe(
+        res => console.log(res),
+        err => console.error(err)
+      );
+
+    }
+  }
+
+  getIndicador(value: any): string {
+    let result: string;
+
+    if (value == "button1") {
+      result = "Bueno"
+    } else if (value == "button2") {
+      result = "Medio";
+    } else {
+      result = "Malo";
+    }
+
+    return result;
+  }
+
 }
+
+
+
+
+
+
+

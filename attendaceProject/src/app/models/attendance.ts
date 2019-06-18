@@ -6,5 +6,5 @@ export interface Attendance{
     indicador_dos: string;
     indicador_tres: string;
     indicador_cuatro: string;
-    comentario: string;
+    comentario?: string;
 }

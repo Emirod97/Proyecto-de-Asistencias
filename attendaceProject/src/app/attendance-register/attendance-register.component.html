@@ -43,13 +43,13 @@
   </div>
   <div class="tabled" style="overflow:auto;"> -->
 
-    <tr *ngFor="let alumno of Alumnos">
+    <tr *ngFor="let lista of list">
 
       <td width="300px" height="50px">
-        <div class="bo"><label class="text1">{{alumno.apellido_paterno}} {{alumno.apellido_materno}}
-            {{alumno.nombre}}</label></div>
+        <div class="bo"><label class="text1">{{lista.apellidoP}} {{lista.apellidoM}}
+            {{lista.nombre}}</label></div>
       </td>
-      <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" id="assist">
+      <td><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" id="{{lista.id_alumno}}">
 
           <option>2</option>
           <option>1</option>
@@ -58,10 +58,10 @@
         </select></td>
 
 
-      <td><button type="button" id="{{face1}}" ></button></td>
-      <td><button type="button" id="regular"></button></td>
-      <td><button type="button" id="sad"></button></td>
-      <td><button type="button" id="happy"></button></td>
+      <td><button type="button" class="{{lista.indicador_uno}}" (click)="cambiar1(lista.id_alumno)"></button></td>
+      <td><button type="button" class="{{lista.indicador_dos}}" (click)="cambiar2(lista.id_alumno)"></button></td>
+      <td><button type="button" class="{{lista.indicador_tres}}" (click)="cambiar3(lista.id_alumno)"></button></td>
+      <td><button type="button" class="{{lista.indicador_cuatro}}" (click)="cambiar4(lista.id_alumno)"></button></td>
       <td><button type="button" (click)="openModal(template)"
           class="form-button">Comment</button>
       </td>
@@ -69,6 +69,6 @@
     </table>
   </div>
   <div class="savebox">
-    <button type="button" class="form-button2">Save</button>
+    <button type="button" class="form-button2" (click)="tomarLista()">Save</button>
   </div>
 </body>

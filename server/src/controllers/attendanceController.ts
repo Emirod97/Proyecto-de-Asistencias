@@ -28,7 +28,7 @@ class AttendanceController {
        
 
         await pool.query(`CALL registrarAsistencia (${asis} ,${id_al},'${grupo}','${ind1}','${indi2}','${indi3}','${indi4}','${comen}')`);
-        res.json({message:'group created'});
+        res.json({message:'Attendance Capturated'});
     }
 }
 
