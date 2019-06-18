@@ -56,10 +56,10 @@ export class AttendanceRegisterComponent implements OnInit {
           listObj.apellidoP = this.Alumnos[index].apellido_paterno;
           listObj.apellidoM = this.Alumnos[index].apellido_materno;
           listObj.asistencia = "2";
-          listObj.indicador_uno = "button1";
-          listObj.indicador_dos = "button1";
-          listObj.indicador_tres = "button1";
-          listObj.indicador_cuatro = 'button1';
+          listObj.indicador_uno = "happy";
+          listObj.indicador_dos = "happy";
+          listObj.indicador_tres = "happy";
+          listObj.indicador_cuatro = 'happy';
           listObj.comentario='';
 
           console.log(listObj);
@@ -85,12 +85,12 @@ export class AttendanceRegisterComponent implements OnInit {
     for (let index = 0; index < this.list.length; index++) {
       if (id == this.list[index].id_alumno) {
 
-        if (this.list[index].indicador_uno == "button1") {
-          this.list[index].indicador_uno = "button2";
-        } else if (this.list[index].indicador_uno == "button2") {
-          this.list[index].indicador_uno = "button3";
+        if (this.list[index].indicador_uno == "happy") {
+          this.list[index].indicador_uno = "regular";
+        } else if (this.list[index].indicador_uno == "regular") {
+          this.list[index].indicador_uno = "sad";
         } else {
-          this.list[index].indicador_uno = "button1";
+          this.list[index].indicador_uno = "happy";
         }
       }
     }
@@ -101,12 +101,12 @@ export class AttendanceRegisterComponent implements OnInit {
     for (let index = 0; index < this.list.length; index++) {
       if (id == this.list[index].id_alumno) {
 
-        if (this.list[index].indicador_dos == "button1") {
-          this.list[index].indicador_dos = "button2";
-        } else if (this.list[index].indicador_dos == "button2") {
-          this.list[index].indicador_dos = "button3";
+        if (this.list[index].indicador_dos == "happy") {
+          this.list[index].indicador_dos = "regular";
+        } else if (this.list[index].indicador_dos == "regular") {
+          this.list[index].indicador_dos = "sad";
         } else {
-          this.list[index].indicador_dos = "button1";
+          this.list[index].indicador_dos = "happy";
         }
       }
     }
@@ -115,12 +115,12 @@ export class AttendanceRegisterComponent implements OnInit {
     for (let index = 0; index < this.list.length; index++) {
       if (id == this.list[index].id_alumno) {
 
-        if (this.list[index].indicador_tres == "button1") {
-          this.list[index].indicador_tres = "button2";
-        } else if (this.list[index].indicador_tres == "button2") {
-          this.list[index].indicador_tres = "button3";
+        if (this.list[index].indicador_tres == "happy") {
+          this.list[index].indicador_tres = "regular";
+        } else if (this.list[index].indicador_tres == "regular") {
+          this.list[index].indicador_tres = "sad";
         } else {
-          this.list[index].indicador_tres = "button1";
+          this.list[index].indicador_tres = "happy";
         }
       }
     }
@@ -129,12 +129,12 @@ export class AttendanceRegisterComponent implements OnInit {
     for (let index = 0; index < this.list.length; index++) {
       if (id == this.list[index].id_alumno) {
 
-        if (this.list[index].indicador_cuatro == "button1") {
-          this.list[index].indicador_cuatro = "button2";
-        } else if (this.list[index].indicador_cuatro == "button2") {
-          this.list[index].indicador_cuatro = "button3";
+        if (this.list[index].indicador_cuatro == "happy") {
+          this.list[index].indicador_cuatro = "regular";
+        } else if (this.list[index].indicador_cuatro == "regular") {
+          this.list[index].indicador_cuatro = "sad";
         } else {
-          this.list[index].indicador_cuatro = "button1";
+          this.list[index].indicador_cuatro = "happy";
         }
       }
     }
@@ -172,9 +172,9 @@ export class AttendanceRegisterComponent implements OnInit {
   getIndicador(value: any): string {
     let result: string;
 
-    if (value == "button1") {
+    if (value == "happy") {
       result = "Bueno"
-    } else if (value == "button2") {
+    } else if (value == "regular") {
       result = "Medio";
     } else {
       result = "Malo";
