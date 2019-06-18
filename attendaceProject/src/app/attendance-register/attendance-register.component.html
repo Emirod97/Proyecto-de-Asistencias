@@ -36,10 +36,11 @@
                 <button type="button" class="close" (click)="modalRef.hide()">&times;</button>
               </div>
               <div class="modal-body">
-                <input type="text" class="form-control" id="comment" [(ngModel)]="lista.comentario">
+                <textarea class="form-control" rows="5" id="comment" [(ngModel)]="lista.comentario"></textarea>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" (click)="modalRef.hide()">Save</button>
+                
               </div>
             </ng-template>
 
