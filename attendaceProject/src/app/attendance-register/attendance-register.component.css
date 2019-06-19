@@ -261,9 +261,7 @@ th, td {
      display: inline-block;
      position: relative;
      background-color: #f7d117;
-     color: white;
-     height: 30px;
-     width: 30px;
+     color: black;
      border: 0;
      border-radius: 5px;
      cursor: pointer;

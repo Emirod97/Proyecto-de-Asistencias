@@ -172,6 +172,9 @@ export class AttendanceRegisterComponent implements OnInit {
     //this.router.navigate(['/user/login']);
 
   }
+  regresar(){
+    this.location.back();
+  }
 
   getIndicador(value: any): string {
     let result: string;
