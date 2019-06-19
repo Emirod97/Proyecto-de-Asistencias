@@ -7,6 +7,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { Lista } from '../models/lista';
 import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
+import { Location } from '@angular/common';
 
 
 
@@ -16,7 +17,8 @@ import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/rende
   styleUrls: ['./attendance-register.component.css']
 })
 export class AttendanceRegisterComponent implements OnInit {
-  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService, private modalService: BsModalService, private router: Router) { }
+  
+  constructor(private activateRoute: ActivatedRoute, private service: DataServiceService, private modalService: BsModalService, private router: Router, private location: Location) { }
 
   Alumnos: any = [];
 
@@ -164,6 +166,8 @@ export class AttendanceRegisterComponent implements OnInit {
       );
 
     }
+
+    this.location.back();
 
     //this.router.navigate(['/user/login']);
 

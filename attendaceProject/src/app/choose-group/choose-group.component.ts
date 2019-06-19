@@ -13,6 +13,7 @@ import { DataServiceService } from '../services/data-service.service';
 export class ChooseGroupComponent implements OnInit {
 
   groups: any = [];
+  nombre: any;
   user: string;
 
   constructor(private router: Router, private service: DataServiceService, private activateRoute: ActivatedRoute) { }
@@ -27,6 +28,8 @@ export class ChooseGroupComponent implements OnInit {
       res => {
         console.log(res)
         this.groups = res;
+
+        this.nombre=this.groups[0].nombre;
       },
       err => console.error(err)
     );
