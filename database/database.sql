@@ -180,4 +180,3 @@ VALUES (_comentario, CURDATE(), _id_alumno, _grupo);
 
 END //
 
-END //
