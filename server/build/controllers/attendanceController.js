@@ -32,7 +32,12 @@ class AttendanceController {
             var indi4 = req.body.indicador_cuatro;
             var comen = req.body.comentario;
             console.log(req.body);
-            yield database_1.default.query(`CALL registrarAsistencia (${asis} ,${id_al},'${grupo}','${ind1}','${indi2}','${indi3}','${indi4}','${comen}')`);
+            yield database_1.default.query(`INSERT INTO asistencias (asistencia, fecha_captura, id_alumno, grupo) 
+        VALUES (${asis}, CURDATE(), ${id_al}, '${grupo}');`);
+            yield database_1.default.query(`INSERT INTO satisfaccion_del_aula (indicador_uno, indicador_dos, indicador_tres, indicador_cuatro, fecha_captura, id_alumno, grupo)
+        VALUES ('${ind1}', '${indi2}','${indi3}', '${indi4}', CURDATE(), ${id_al}, '${grupo}');`);
+            yield database_1.default.query(`INSERT INTO comentarios (comentario, fecha_captura, id_alumno, grupo)
+        VALUES ('${comen}', CURDATE(), ${id_al}, '${grupo}');`);
             res.json({ message: 'Attendance Capturated' });
         });
     }

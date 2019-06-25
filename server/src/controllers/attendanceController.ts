@@ -27,7 +27,16 @@ class AttendanceController {
        console.log(req.body);
        
 
-        await pool.query(`CALL registrarAsistencia (${asis} ,${id_al},'${grupo}','${ind1}','${indi2}','${indi3}','${indi4}','${comen}')`);
+        await pool.query(`INSERT INTO asistencias (asistencia, fecha_captura, id_alumno, grupo) 
+        VALUES (${asis}, CURDATE(), ${id_al}, '${grupo}');`);
+
+        await pool.query(`INSERT INTO satisfaccion_del_aula (indicador_uno, indicador_dos, indicador_tres, indicador_cuatro, fecha_captura, id_alumno, grupo)
+        VALUES ('${ind1}', '${indi2}','${indi3}', '${indi4}', CURDATE(), ${id_al}, '${grupo}');`);
+
+        await pool.query(`INSERT INTO comentarios (comentario, fecha_captura, id_alumno, grupo)
+        VALUES ('${comen}', CURDATE(), ${id_al}, '${grupo}');`);
+
+
         res.json({message:'Attendance Capturated'});
     }
 }
