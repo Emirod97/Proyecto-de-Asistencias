@@ -27,9 +27,9 @@ CREATE TABLE docentes
 
 CREATE TABLE materias
 (
-  id_materia INT NOT NULL,
+  clave_materia INT NOT NULL,
   desc_materia VARCHAR(50) NOT NULL,
-  PRIMARY KEY (id_materia)
+  PRIMARY KEY (clave_materia)
 );
 
 CREATE TABLE coordinadores
@@ -89,11 +89,12 @@ CREATE TABLE materias_activas
 (
   grupo VARCHAR(20) NOT NULL,
   id_docente INT NOT NULL,
-  id_materia INT NOT NULL,
+  clave_materia INT NOT NULL,
   id_horario VARCHAR(100) NOT NULL,
+  tipo VARCHAR(15) NOT NULL,
   PRIMARY KEY (grupo),
   FOREIGN KEY (id_docente) REFERENCES docentes(id_docente),
-  FOREIGN KEY (id_materia) REFERENCES materias(id_materia),
+  FOREIGN KEY (clave_materia) REFERENCES materias(clave_materia),
   FOREIGN KEY (id_horario) REFERENCES horarios(id_horario)
 );
 
@@ -103,10 +104,8 @@ CREATE TABLE Comentarios
   fecha_captura DATE NOT NULL,
   id_alumno INT NOT NULL,
   grupo VARCHAR(20) NOT NULL,
-  id_docente INT NOT NULL,
   FOREIGN KEY (id_alumno) REFERENCES alumnos(id_alumno),
   FOREIGN KEY (grupo) REFERENCES materias_activas(grupo),
-  FOREIGN KEY (id_docente) REFERENCES docentes(id_docente)
 );
 
 CREATE TABLE alumnos_condicionados
@@ -129,10 +128,10 @@ CREATE TABLE asistencias
 CREATE TABLE lista_alumnos
 (
   id_alumno INT NOT NULL,
-  id_materia INT NOT NULL,
+  clave_materia INT NOT NULL,
   grupo VARCHAR(20) NOT NULL,
   FOREIGN KEY (id_alumno) REFERENCES alumnos(id_alumno),
-  FOREIGN KEY (id_materia) REFERENCES materias(id_materia),
+  FOREIGN KEY (clave_materia) REFERENCES materias(clave_materia),
   FOREIGN KEY (grupo) REFERENCES materias_activas(grupo)
 );
 

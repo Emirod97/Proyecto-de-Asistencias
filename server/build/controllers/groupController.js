@@ -16,7 +16,7 @@ class GroupController {
     getGroups(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const grupo = yield database_1.default.query('SELECT materias_activas.grupo, materias_activas.id_docente, docentes.nombre FROM materias_activas, docentes WHERE materias_activas.id_docente = ? AND ? = docentes.id_docente', [id, id]);
+            const grupo = yield database_1.default.query('SELECT materias_activas.grupo, materias_activas.id_docente, docentes.nombre, materias.desc_materia, materias_activas.tipo FROM materias_activas, docentes, materias WHERE materias_activas.id_docente = ? AND ? = docentes.id_docente AND materias_activas.clave_materia = materias.clave_materia', [id, id]);
             console.log(grupo);
             res.json(grupo);
         });
